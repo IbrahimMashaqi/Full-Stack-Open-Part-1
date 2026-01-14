@@ -7,14 +7,25 @@ const Statistics = (props) => {
   const { good, neutral, bad, all, average, positive } = props;
   if (all === 0) return <h3>No feedback given</h3>;
   return (
-    <div>
-      <h3>good: {good}</h3>
-      <h3>neutral: {neutral}</h3>
-      <h3>bad: {bad}</h3>
-      <h3>all: {all}</h3>
-      <h3>average: {average}</h3>
-      <h3>positive: {positive} %</h3>
-    </div>
+    <table>
+      <tbody>
+        <StatisticLine text="good" value={good} />
+        <StatisticLine text="neutral" value={neutral} />
+        <StatisticLine text="bad" value={bad} />
+        <StatisticLine text="all" value={all} />
+        <StatisticLine text="average" value={average} />
+        <StatisticLine text="positive" value={positive} />
+      </tbody>
+    </table>
+  );
+};
+
+const StatisticLine = ({ text, value }) => {
+  return (
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
   );
 };
 
